@@ -11,4 +11,4 @@ Otros recursos:
 
 - [Repositorio de Parciales y Finales](https://fcytpoo.blogspot.com/)
 
-- [Repositorio GIT](https://github.com/emanuelpeg/codigoCpp2026)
+- [Repositorio GIT - Emanuel](https://github.com/emanuelpeg/codigoCpp2026)
