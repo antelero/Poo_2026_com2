@@ -60,20 +60,29 @@ bool bisiesto(int anio){
         return false;
 }
 /*Guia 2*/
-//2. Realice un método que retorne el promedio de un vector de 10 enteros
 
-int minimo(int vec[], int n){
+//1. Realice un método que retorne el acumulado de un vector de 10 enteros. Utilice recursividad.
+int suma(int vec[], int n){
     if (n==0)
         return 0;
-    if (n == 1)
-        return vec[0];
-    int min = minimo(vec, n - 1);
-    if (vec[n - 1] < min)
-        return vec[n - 1];
-    else
-        return min;
+    return vec[n - 1] + suma(vec, n - 1);
+}
+/*
+float promedioA(int vec[], int n){
+    if (n==0)
+        return 0;
+    return (vec[n - 1] + promedioA(vec, n - 1) * (n - 1)) / (float)n;
+}*/
+
+//2. Realice un método que retorne el promedio de un vector de 10 enteros
+float promedio(int v[], int n) {
+    if (n==0)
+        return 0;
+    return (float)suma(v, n) / n;
 }
 
+//3. Realice un método que retorne el mayor elemento de un vector de 10 enteros. Utilice
+//recursividad.
 int maximo(int vec[], int n){
     if (n==0)
         return 0;
@@ -86,23 +95,21 @@ int maximo(int vec[], int n){
         return max;
 }
 
-int suma(int vec[], int n){
+//4. Realice un método que retorne el menor elemento de un vector de 10 enteros. Utilice recursividad.
+int minimo(int vec[], int n){
     if (n==0)
         return 0;
-    return vec[n - 1] + suma(vec, n - 1);
+    if (n == 1)
+        return vec[0];
+    int min = minimo(vec, n - 1);
+    if (vec[n - 1] < min)
+        return vec[n - 1];
+    else
+        return min;
 }
 
-float promedioA(int vec[], int n){
-    if (n==0)
-        return 0;
-    return (vec[n - 1] + promedioA(vec, n - 1) * (n - 1)) / (float)n;
-}
-float promedio(int v[], int n) {
-    if (n==0)
-        return 0;
-    return (float)suma(v, n) / n;
-}
-
+//6. Realice una función que dado un vector lo transforme de modo tal que el primer elemento sea el
+//último y el ultimo el primero, el segundo el antepenúltimo, etc. Utilice recursividad.
 void invertir(int v[], int low, int high) {
     if (low < high) {
         int aux  = v[low];
@@ -113,14 +120,14 @@ void invertir(int v[], int low, int high) {
 }
 int main()
 {
-    /*
+
     //H(7), H( 5), H(12)
     cout << "Ejemplo H"<<endl;
     cout <<H(7)<< " "<< H( 5)<< " "<< H(12)<< endl;
     //Ejemplo H(7) Detallado
     cout << "Ejemplo H(7) Detallado"<<endl;
     cout <<HDet(7)<<endl;
-    */
+
     cout << "Ejemplo MCD (Máximo Común Divisor)"<<endl;
     cout << mcdA(16,24) << " "<<  mcdB(16,24) << endl;
     cout << mcdA(48,18)<< " "<<  mcdB(48,18) << endl;
@@ -128,7 +135,7 @@ int main()
     cout << "2024 V " << bisiesto(2024) << endl;
     cout << "1900 X " << bisiesto(1900) << endl;
     cout << "2000 V " << bisiesto(2000) << endl;
-    /*
+
     int v[10] = {-3, 7, 2, 9, 5, 1, 8, 4, 6, 0};
     int v1[0] = {};
     int v2[1] = {2};
@@ -147,6 +154,6 @@ int main()
         cout << v[i] << " ";
     }
     cout<< endl;
-    */
+
     return 0;
 }
