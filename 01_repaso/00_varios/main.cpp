@@ -10,11 +10,12 @@ Escriba una función C++ recursiva que lac alcule y un programa cliente que perm
 Obtener H(7), H( 5), H(12).
 */
 int H(int x){
-    if (x<4)
+    if (x<4) //Caso base
         return x*4;
     else if (x>=4)
         return 3*H(x-2)+1;
 }
+
 int HDet(int x){
    cout << "Llamando H(" << x << ")" << endl;
    if (x < 4) {
@@ -26,7 +27,7 @@ int HDet(int x){
    return res;
 }
 /*Ejercicio​ ​14
-Escriba una función recursiva para calcular el máximo común divisor (m.c.d.)de dos números
+Escriba una función recursiva para calcular el máximo común divisor (m.c.d.) de dos números
 enteros dados aplicando las propiedades recurrentes.
 Si a>b,  entonces m.c.d.(a,b)=m.c.d.(a-b,b)
 Si a<b,  entonces m.c.d.(a,b)=m.c.d.(a, b-a)
@@ -48,8 +49,9 @@ int mcdB(int a, int b){
 /*
 Ejercicio​ ​16
 Determinar si un año es bisisiesto
-Recordar: ​Un año es bisiesto si es divisible por 4, excepto losañosdesiglo (aquellos
+Recordar: ​Un año es bisiesto si es divisible por 4, excepto los años de siglo (aquellos
 divisibles por 100), que para ser bisiestos, también deben ser divisibles por 400​. */
+
 bool bisiesto(int anio){
     if (anio%4==0 &&
         (anio%100!=0 || anio%400==0) )
@@ -111,12 +113,14 @@ void invertir(int v[], int low, int high) {
 }
 int main()
 {
+    /*
     //H(7), H( 5), H(12)
     cout << "Ejemplo H"<<endl;
     cout <<H(7)<< " "<< H( 5)<< " "<< H(12)<< endl;
     //Ejemplo H(7) Detallado
     cout << "Ejemplo H(7) Detallado"<<endl;
     cout <<HDet(7)<<endl;
+    */
     cout << "Ejemplo MCD (Máximo Común Divisor)"<<endl;
     cout << mcdA(16,24) << " "<<  mcdB(16,24) << endl;
     cout << mcdA(48,18)<< " "<<  mcdB(48,18) << endl;
@@ -124,6 +128,7 @@ int main()
     cout << "2024 V " << bisiesto(2024) << endl;
     cout << "1900 X " << bisiesto(1900) << endl;
     cout << "2000 V " << bisiesto(2000) << endl;
+    /*
     int v[10] = {-3, 7, 2, 9, 5, 1, 8, 4, 6, 0};
     int v1[0] = {};
     int v2[1] = {2};
@@ -142,5 +147,6 @@ int main()
         cout << v[i] << " ";
     }
     cout<< endl;
+    */
     return 0;
 }
