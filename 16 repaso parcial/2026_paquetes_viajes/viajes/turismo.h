@@ -15,7 +15,7 @@
 struct RegistroServicio {
 
     int numero;
-    int tipo;
+    int tipo; //Hotel, Vuelo,
 
     char descripcion[100];
 

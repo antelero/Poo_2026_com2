@@ -10,7 +10,9 @@ Servicio::Servicio(int numero, string descripcion){
 }
 
 
-int Servicio::getNumero(){ return numero; }
+int Servicio::getNumero(){
+    return numero;
+}
 
 string Servicio::getDescripcion()const{
     return descripcion;

@@ -7,7 +7,6 @@
 class Paquete: public Servicio{
 
 private:
-
     vector<Servicio*> componentes;
 
 public:
