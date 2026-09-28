@@ -13,7 +13,7 @@ using namespace std;
 struct strParte{
     int numero;
     char descripcion[200];
-    float precio;
+    double precio;
 };
 struct strBicicleta {
     int numero;

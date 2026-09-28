@@ -32,7 +32,7 @@ void Bicicleteria::guardarPartesBinario(const string& nombreArchivo) const {
         reg.precio = p->getPrecio();
 
         // Escribimos toda la estructura de una vez
-        out.write((char*)(&reg), sizeof(Parte));
+        out.write((char*)(&reg), sizeof(strParte));
     }
 
     out.close();
