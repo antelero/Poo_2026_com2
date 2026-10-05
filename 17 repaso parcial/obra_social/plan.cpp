@@ -18,5 +18,6 @@ const vector<string> &Plan::getPrestaciones() const {
 }
 
 bool Plan::tienePrestacion(const string &p) const {
-    return find(prestaciones.begin(), prestaciones.end(), p) != prestaciones.end();
+    auto tPres = find(prestaciones.begin(), prestaciones.end(), p);
+    return  tPres != prestaciones.end();
 }

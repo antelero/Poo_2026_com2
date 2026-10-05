@@ -2,9 +2,9 @@
 #define PLAN_H
 
 #include <iostream>
-#include <vector>
 #include <string>
 #include <fstream>
+#include <vector>
 #include <algorithm>
 
 using namespace std;

@@ -4,11 +4,22 @@ using namespace std;
 
 int main() {
     ObraSocial os;
-    os.inicializarPlanes();
     // Generar archivo con datos
     os.crearClientesBin();
+    os.crearArchivosPlanes();
+    os.inicializarPlanes();    
     os.cargarClientes("clientes.dat");
-    cout << "Top 5 usuarios que más usaron el servicio:\n";
+
+    string prestacionAConsultar = "consulta medica";
+    Cliente primero = os.getClientes()[0];
+    cout << "\n " << primero.getNombre() << " tiene '" << prestacionAConsultar << "'? "
+         << (primero.tienePrestacion(prestacionAConsultar) ? "Si" : "No") << endl;
+    prestacionAConsultar = "odontologia";
+    primero = os.getClientes()[0];
+    cout << "\n " << primero.getNombre() << " tiene '" << prestacionAConsultar << "'? "
+         << (primero.tienePrestacion(prestacionAConsultar) ? "Si" : "No") << endl;
+
+    cout << "\nTop 5 usuarios que mas usaron el servicio:\n";
     for (auto& c : os.top5Usuarios())
         cout << c << endl;
     cout << "\nTodas las prestaciones disponibles:\n";

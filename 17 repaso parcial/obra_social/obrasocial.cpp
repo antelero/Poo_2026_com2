@@ -46,8 +46,9 @@ void ObraSocial::cargarClientes(const string &nombreArchivo) {
     }
     strUsuario reg;
     while (arch.read((char*)&reg, sizeof(strUsuario))) {
-        Cliente c(reg.id, reg.nombre, reg.tipo, reg.cantidad, planes[reg.tipo]);
-        clientes.push_back(c);
+        //Cliente c(reg.id, reg.nombre, reg.tipo, reg.cantidad, planes[reg.tipo]);
+        //clientes.push_back(c);
+        clientes.emplace_back(reg.id, reg.nombre, reg.tipo, reg.cantidad, planes[reg.tipo]);
     }
     arch.close();
 }
@@ -85,4 +86,35 @@ vector<string> ObraSocial::prestacionesComunes() const {
             comun.push_back(p);
     }
     return comun;
+}
+
+void ObraSocial::crearArchivosPlanes() {
+    vector<string> basica = {
+        "consulta medica",
+        "remedios gratuitos"
+    };
+
+    vector<string> medio = basica; // hereda las de básico
+    medio.push_back("odontologia");
+    medio.push_back("oftalmologia");
+
+    vector<string> premium = medio; // hereda las de medio
+    premium.push_back("internacion");
+
+    auto escribirArchivo = [](const string& nombreArchivo, const vector<string>& prestaciones) {
+        ofstream arch(nombreArchivo);
+        if (!arch) {
+            cerr << "Error al crear el archivo " << nombreArchivo << endl;
+            return;
+        }
+        for (const auto& p : prestaciones)
+            arch << p << "\n";
+        arch.close();
+    };
+
+    escribirArchivo("basica.txt", basica);
+    escribirArchivo("medio.txt", medio);
+    escribirArchivo("premium.txt", premium);
+
+    cout << "Archivos de planes generados correctamente.\n";
 }

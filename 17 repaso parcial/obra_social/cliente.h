@@ -11,7 +11,7 @@ using namespace std;
 class Cliente {
     int id;
     char nombre[200];
-    char tipo;   // 'b', 'm', 'p'
+    char tipo;   // 'b'plan básico:, 'm'plan medio:, 'p'plan premium:
     int cantidad;
     Plan* plan;
 public:

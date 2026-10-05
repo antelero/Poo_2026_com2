@@ -46,6 +46,7 @@ public:
     vector<string> prestacionesComunes() const;
 
 
+    void crearArchivosPlanes();
 };
 
 #endif
